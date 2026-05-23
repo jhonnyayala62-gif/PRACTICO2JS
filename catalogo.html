@@ -6,19 +6,30 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="catalogo-body">
-  <header>
-    <h1>Tienda de Licores</h1>
-    <nav>
-      <ul>
-        <li><a href="dashboard.html">Inicio</a></li>
-        <li><a href="catalogo.html">Catálogo</a></li>
-        <li><a href="inventario.html">Inventario</a></li>
-        <li><a href="movimientos.html">Movimientos</a></li>
-        <li><a href="reportes.html">Reportes</a></li>
-        <li><a href="login.html">Salir</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header class="menu">
+
+  <h1 class="logo">Tienda de Licores</h1>
+
+  <!-- Botón hamburguesa -->
+  <div class="hamburger" id="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+  <!-- Menú -->
+  <nav class="nav-menu" id="nav-menu">
+    <ul>
+      <li class="nav-item"><a href="dashboard.html">Inicio</a></li>
+      <li class="nav-item"><a href="catalogo.html">Catálogo</a></li>
+      <li class="nav-item"><a href="inventario.html">Inventario</a></li>
+      <li class="nav-item"><a href="movimientos.html">Movimientos</a></li>
+      <li class="nav-item"><a href="reportes.html">Reportes</a></li>
+      <li class="nav-item"><a href="login.html">Salir</a></li>
+    </ul>
+  </nav>
+
+</header>
 
   <main>
     <h2>Catálogo por Departamentos</h2>
@@ -207,6 +218,7 @@
     <p>© 2026 - Tienda de Licores</p>
   </div>
 </footer>
+<script src="js/script.js"></script>
 
 </body>
 </html>

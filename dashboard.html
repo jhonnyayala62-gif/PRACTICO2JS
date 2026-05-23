@@ -6,19 +6,32 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="dashboard-body">
+  
   <header class="menu">
-    <h1>Tienda de Licores</h1>
-    <nav>
-      <ul>
-        <li class="nav-item"><a href="dashboard.html">Inicio</a></li>
-        <li class="nav-item"><a href="catalogo.html">Catálogo</a></li>
-        <li class="nav-item"><a href="inventario.html">Inventario</a></li>
-        <li class="nav-item"><a href="movimientos.html">Movimientos</a></li>
-        <li class="nav-item"><a href="reportes.html">Reportes</a></li>
-        <li class="nav-item"><a href="login.html">Salir</a></li>
-      </ul>
-    </nav>
-  </header>
+
+  <h1 class="logo">Tienda de Licores</h1>
+
+  <!-- Botón hamburguesa -->
+  <div class="hamburger" id="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+  <!-- Menú -->
+  <nav class="nav-menu" id="nav-menu">
+    <ul>
+      <li class="nav-item"><a href="dashboard.html">Inicio</a></li>
+      <li class="nav-item"><a href="catalogo.html">Catálogo</a></li>
+      <li class="nav-item"><a href="inventario.html">Inventario</a></li>
+      <li class="nav-item"><a href="movimientos.html">Movimientos</a></li>
+      <li class="nav-item"><a href="reportes.html">Reportes</a></li>
+      <li class="nav-item"><a href="login.html">Salir</a></li>
+    </ul>
+  </nav>
+
+</header>
+
 
   <main>
     <section class="carousel">
@@ -128,24 +141,6 @@
       <p>© 2026 - Tienda de Licores</p>
     </div>
   </footer>
-  <script>
-  const container = document.querySelector('.carousel-container');
-  const item = container.querySelectorAll('.carousel-item');
-  const prevButton = document.querySelector('.carousel-button.prev');
-  const nextButton = document.querySelector('.carousel-button.next');
-  let index = 0;
-    function showSlide(i) {
-      container.style.transform = `translateX(-${index * 100}%)`;
-    }
-    prevButton.addEventListener('click', () => {
-      index = (index > 0) ? index - 1 : item.length - 1;
-      showSlide(index);
-    });
-    nextButton.addEventListener('click', () => {
-      index = (index < item.length - 1) ? index + 1 : 0;
-      showSlide(index);
-    });
-
-  </script>
+ <script src="js/script.js"></script>
 </body>
 </html>
