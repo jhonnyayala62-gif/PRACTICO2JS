@@ -25,7 +25,6 @@ const server = http.createServer((req, res) => {
         `SELECT * FROM usuarios WHERE usuario = ? AND password = ?`,
         [data.usuario, data.password],
         (err, row) => {
-
           if (err) {
             res.writeHead(500);
             return res.end('Error');
@@ -42,10 +41,16 @@ const server = http.createServer((req, res) => {
       );
     });
 
-  } 
-  // SERVIR ARCHIVOS (HTML, CSS, JS)
+  }
+  // SERVIR ARCHIVOS (HTML, CSS, JS, PNG, JSON...)
   else {
+
     let filePath = '.' + (req.url === '/' ? '/login.html' : req.url);
+
+    // SW header obligatorio
+    if (req.url === '/sw.js') {
+      res.setHeader('Service-Worker-Allowed', '/');
+    }
 
     const ext = path.extname(filePath);
 
@@ -53,7 +58,12 @@ const server = http.createServer((req, res) => {
       '.html': 'text/html',
       '.css': 'text/css',
       '.js': 'application/javascript',
-      '.svg': 'image/svg+xml'
+      '.svg': 'image/svg+xml',
+      '.png': 'image/png',
+      '.jpg': 'image/jpeg',
+      '.ico': 'image/x-icon',
+      '.json': 'application/json',
+      '.webp': 'image/webp'
     }[ext] || 'application/octet-stream';
 
     fs.readFile(filePath, (err, content) => {

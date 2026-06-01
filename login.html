@@ -2,7 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Login - Inventario</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Tienda de Licores</title>
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#1a2a3a">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="login-body">
@@ -19,6 +22,13 @@
     </form>
   </section>
   <script src="js/script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js')
+            .then(() => console.log('SW registrado ✅'))
+            .catch(err => console.error('SW error:', err));
+        }
+  </script>
 </body>
 </html>
 
