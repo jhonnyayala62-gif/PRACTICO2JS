@@ -42,6 +42,40 @@ const server = http.createServer((req, res) => {
     });
 
   }
+
+  // GET /productos
+  else if (req.method === 'GET' && req.url === '/productos') {
+    db.all(`SELECT * FROM productos`, [], (err, rows) => {
+      if (err) {
+        res.writeHead(500);
+        return res.end('Error');
+      }
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(rows));
+    });
+  }
+
+  // POST /productos
+  else if (req.method === 'POST' && req.url === '/productos') {
+    let body = '';
+    req.on('data', chunk => { body += chunk.toString(); });
+    req.on('end', () => {
+      const { nombre, categoria, unidad, precio } = JSON.parse(body);
+      db.run(
+        `INSERT INTO productos (nombre, categoria, unidad, precio) VALUES (?, ?, ?, ?)`,
+        [nombre, categoria, unidad, precio],
+        function(err) {
+          if (err) {
+            res.writeHead(500);
+            return res.end('Error');
+          }
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.end(JSON.stringify({ id: this.lastID }));
+        }
+      );
+    });
+  }
+
   // SERVIR ARCHIVOS (HTML, CSS, JS, PNG, JSON...)
   else {
 

@@ -1,76 +1,169 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#1a2a3a">
-  <title>Inventario</title>
-  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0B1629">
+  <title>Inventario - Tienda de Licores</title>
+  <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
 </head>
+
 <body>
- <header class="menu">
 
-  <h1 class="logo">Tienda de Licores</h1>
+  <!-- HEADER -->
+  <header class="menu">
+    <h1 class="logo">Tienda de Licores</h1>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="nav-menu" id="nav-menu">
+      <ul>
+        <li class="nav-item"><a href="dashboard.html">Inicio</a></li>
+        <li class="nav-item"><a href="catalogo.html">Catálogo</a></li>
+        <li class="nav-item"><a href="inventario.html">Inventario</a></li>
+        <li class="nav-item"><a href="movimientos.html">Movimientos</a></li>
+        <li class="nav-item"><a href="reportes.html">Reportes</a></li>
+        <li class="nav-item"><a href="login.html">Salir</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <!-- Botón hamburguesa -->
-  <div class="hamburger" id="hamburger">
-  <span></span>
-  <span></span>
-  <span></span>
+  <!-- CONTENIDO -->
+  <main class="inv-main">
+
+    <!-- PÁGINA TÍTULO -->
+    <div class="inv-page-header">
+  <div>
+    <h1 class="inv-page-title">
+      <i class="ti ti-package"></i> Inventario
+    </h1>
+    <p class="inv-page-sub">Gestiona los productos de tu tienda</p>
+  </div>
 </div>
 
-  <!-- Menú -->
-  <nav class="nav-menu" id="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="dashboard.html">Inicio</a></li>
-      <li class="nav-item"><a href="catalogo.html">Catálogo</a></li>
-      <li class="nav-item"><a href="inventario.html">Inventario</a></li>
-      <li class="nav-item"><a href="movimientos.html">Movimientos</a></li>
-      <li class="nav-item"><a href="reportes.html">Reportes</a></li>
-      <li class="nav-item"><a href="login.html">Salir</a></li>
-    </ul>
-  </nav>
+    <!-- ESTADÍSTICAS -->
+    <div class="inv-stats">
+      <div class="inv-stat">
+        <div class="inv-stat-icon"><i class="ti ti-packages"></i></div>
+        <div class="inv-stat-info">
+          <div class="inv-stat-num" id="stat-total">0</div>
+          <div class="inv-stat-label">Total productos</div>
+        </div>
+      </div>
+      <div class="inv-stat">
+        <div class="inv-stat-icon"><i class="ti ti-tags"></i></div>
+        <div class="inv-stat-info">
+          <div class="inv-stat-num" id="stat-categorias">0</div>
+          <div class="inv-stat-label">Categorías</div>
+        </div>
+      </div>
+      <div class="inv-stat inv-stat-warn">
+        <div class="inv-stat-icon"><i class="ti ti-alert-triangle"></i></div>
+        <div class="inv-stat-info">
+          <div class="inv-stat-num" id="stat-bajo">0</div>
+          <div class="inv-stat-label">Stock bajo</div>
+        </div>
+      </div>
+      <div class="inv-stat">
+        <div class="inv-stat-icon"><i class="ti ti-coin"></i></div>
+        <div class="inv-stat-info">
+          <div class="inv-stat-num" id="stat-precio">Bs. 0</div>
+          <div class="inv-stat-label">Precio promedio</div>
+        </div>
+      </div>
+    </div>
 
-</header>
-  <main>
-    <h2>Registrar Producto</h2>
-    <form class="form-inventario">
-      <input type="text" placeholder="Nombre del producto" required>
-      <select>
-        <option>Licores</option>
-        <option>Vinos</option>
-        <option>Cervezas</option>
-        <option>Refrescos</option>
-        <option>Complementos</option>
-      </select>
-      <input type="text" placeholder="Unidad" required>
-      <input type="number" placeholder="Precio unitario(Bs)" required>
-      <button type="submit">Guardar</button>
-    </form>
+    <!-- FORMULARIO -->
+    <div class="inv-form-card">
+      <div class="inv-form-title">
+        <i class="ti ti-plus"></i> Registrar nuevo producto
+      </div>
+      <form class="form-inventario" id="form-inventario" action="javascript:void(0)">
+        <div class="inv-field">
+          <label for="nombre-producto">Nombre del producto</label>
+          <input type="text" id="nombre-producto" placeholder="Ej. Ron Flor de Caña" required>
+        </div>
+        <div class="inv-field">
+          <label for="categoria-producto">Categoría</label>
+          <select id="categoria-producto">
+            <option>Licores</option>
+            <option>Vinos</option>
+            <option>Cervezas</option>
+            <option>Refrescos</option>
+            <option>Complementos</option>
+          </select>
+        </div>
+        <div class="inv-field">
+          <label for="unidad-producto">Unidad</label>
+          <input type="text" id="unidad-producto" placeholder="Ej. Botella 1 Lt" required>
+        </div>
+        <div class="inv-field">
+          <label for="precio-producto">Precio unitario (Bs)</label>
+          <input type="number" id="precio-producto" placeholder="0.00" step="0.01" min="0" required>
+        </div>
+        <div class="inv-field inv-field-btn">
+          <button type="submit" class="btn-guardar">
+            <i class="ti ti-device-floppy"></i> Guardar
+          </button>
+        </div>
+      </form>
+    </div>
 
-    <h2>Inventario Actual</h2>
-    <button id="actualizar-inventario">Actualizar Inventario</button>
+    <!-- TABLA -->
+    <div class="inv-table-card">
+        <div class="inv-table-card-header">
 
-    <table class="tabla-inventario">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Producto</th>
-          <th>Departamento</th>
-          <th>Unidad</th>
-          <th>Stock</th>
-          <th>Precio unitario(Bs)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Aquí se llenará con el inventario actual -->
-      </tbody>
-    </table>
+          <h2 class="inv-section-title">
+            <i class="ti ti-list"></i> Inventario Actual
+          </h2>
+
+          <div class="inv-table-actions">
+
+            <div class="inv-table-meta" id="inv-count">
+              0 productos
+            </div>
+
+            <button id="actualizar-inventario" class="btn-actualizar">
+              <i class="ti ti-refresh"></i>
+              Actualizar
+            </button>
+
+          </div>
+
+        </div>
+        <div class="inv-table-wrap">
+          <table class="tabla-inventario">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Producto</th>
+                <th>Categoría</th>
+                <th>Unidad</th>
+                <th style="text-align:center">Stock</th>
+                <th style="text-align:right">Precio (Bs)</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-inventario-body">
+              <tr>
+                <td colspan="6" class="inv-empty">
+                  <i class="ti ti-mood-empty"></i> Cargando productos...
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+
   </main>
+
   <script src="js/script.js"></script>
 </body>
 </html>

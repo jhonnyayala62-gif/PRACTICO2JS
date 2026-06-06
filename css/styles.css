@@ -484,6 +484,350 @@ main {
   font-size: 14px;
 }
 
+
+/* =========================
+   INVENTARIO OSCURO
+========================= */
+
+.inv-main{
+    margin-top:90px;
+    padding:25px;
+}
+
+.inv-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.inv-stat{
+  display: grid;
+  grid-template-columns:repeat(4, 1fr); 
+  gap:15px;
+  margin-bottom:25px;
+  
+}
+
+.inv-stat-hover{
+   transform:translateY(-4px);
+}
+
+.inv-stat-num{
+    font-size:28px;
+    font-weight:700;
+    color:var(--neon);
+}
+
+.inv-stat-label{
+    margin-top:8px;
+    color:var(--azul-claro);
+    font-size:14px;
+}
+
+.inv-form-card{
+    background:var(--superficie);
+    border:1px solid var(--borde);
+    border-radius:14px;
+    padding:25px;
+    margin-bottom:25px;
+}
+
+.inv-form-title{
+    font-size:18px;
+    font-weight:600;
+    color:var(--neon);
+    margin-bottom:20px;
+}
+
+.form-inventario{
+    display:grid;
+    grid-template-columns:2fr 1.2fr 1fr 1fr auto;
+    gap:15px;
+    align-items:end;
+}
+
+.inv-field{
+ display:flex;
+ flex-direction:column;
+}
+
+.inv-field label{
+    color:var(--azul-claro);
+    margin-bottom:6px;
+}
+
+.inv-field input,
+.inv-field select{
+    padding:12px;
+    background:var(--fondo);
+    color:var(--texto);
+    border:1px solid var(--borde);
+    border-radius:8px;
+}
+
+.inv-field input:focus,
+.inv-field select:focus{
+    outline:none;
+    border-color:var(--neon);
+}
+
+.inv-field-btn{
+    display:flex;
+    align-items:flex-end;
+}
+
+.btn-guardar{
+    background:var(--neon);
+    color:var(--fondo);
+    border:none;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.btn-guardar:hover{
+    opacity:.9;
+}
+
+.inv-table-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.inv-section-title{
+    color:var(--texto);
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.inv-section-title i{
+    color:var(--neon);
+}
+
+.inv-section-title i{
+    color:var(--neon);
+}
+
+/* =========================
+CABECERA TABLA INVENTARIO
+========================= */
+
+.inv-table-card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.inv-table-actions{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+.btn-actualizar,
+#actualizar-inventario{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 24px;
+
+    background: rgba(18, 37, 67, 0.95);
+    color: var(--neon);
+
+    border: 2px solid var(--neon);
+    border-radius: 14px;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .5px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 10px rgba(226,255,101,.15),
+        0 0 20px rgba(226,255,101,.08);
+
+    transition: all .3s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-actualizar::before,
+#actualizar-inventario::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(226,255,101,.18),
+        transparent
+    );
+
+    transition: .6s;
+}
+
+.btn-actualizar:hover,
+#actualizar-inventario:hover{
+    transform: translateY(-3px);
+
+    color: var(--fondo);
+    background: var(--neon);
+
+    box-shadow:
+        0 0 15px rgba(226,255,101,.35),
+        0 0 35px rgba(226,255,101,.20);
+}
+
+.btn-actualizar:hover::before,
+#actualizar-inventario:hover::before{
+    left: 100%;
+}
+
+.btn-actualizar i,
+#actualizar-inventario i{
+    font-size: 18px;
+    transition: transform .5s ease;
+}
+
+.btn-actualizar:hover i,
+#actualizar-inventario:hover i{
+    transform: rotate(180deg);
+}
+
+.inv-table-card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    text-align:left;
+}
+
+.inv-table-actions{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.inv-table-meta{
+    color:var(--azul-claro);
+    font-size:14px;
+}
+
+.inv-section-title{
+    margin:0;
+}
+
+.inv-table-wrap{
+    background:var(--superficie);
+    border:1px solid var(--borde);
+    border-radius:14px;
+   overflow:hidden;
+}
+
+.badge-stock{
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.badge-ok{
+    background:rgba(57,255,20,.15);
+    color:#39FF14;
+}
+
+.badge-low{
+    background:rgba(255,180,0,.15);
+    color:#FFB400;
+}
+
+.badge-zero{
+    background:rgba(255,80,80,.15);
+    color:#FF5050;
+}
+
+.badge-cat{
+    display:inline-block;
+    padding:4px 10px;
+    border-radius:20px;
+    background:rgba(140,196,223,.15);
+    color:var(--azul-claro);
+    font-size:12px;
+}
+
+@media(max-width:768px){
+
+    .inv-stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .form-inventario{
+        grid-template-columns:1fr;
+    }
+
+    .btn-guardar{
+        width:100%;
+    }
+
+    .inv-table-card-header{
+        flex-direction:column;
+        align-items:stretch;
+        gap:15px;
+    }
+
+    .inv-table-actions{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .btn-actualizar{
+        width:100%;
+        justify-content:center;
+    }
+    .inv-table-card-header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+    } 
+
+    .inv-table-actions{
+        width:100%;
+        justify-content:space-between;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .inv-main{
+        padding:15px;
+    }
+
+    .inv-stat-num{
+        font-size:22px;
+    }
+
+    .inv-stat-label{
+        font-size:12px;
+    }
+} 
+
+
+
 /* =========================
    FOOTER
 ========================= */
